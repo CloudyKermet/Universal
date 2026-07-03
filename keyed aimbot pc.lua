@@ -14,7 +14,7 @@ local wallcheck = false
 local friendcheck = false
 local aimpart = "Head"
 local smoothness = 0.2
-local verticalOffset = 0  -- Pixels (positive = aim higher)
+local verticalOffset = 0
 
 local Target = nil
 local HoldingTrigger = false
@@ -33,15 +33,15 @@ local Window = Rayfield:CreateWindow({
       Invite = "MqvCGQCcxm",
       RememberJoins = true
    },
-    KeySystem = true, -- Set this to true to use our key system
+    KeySystem = true,
    KeySettings = {
       Title = "VoidX Keysystem",
       Subtitle = "KermetDevelopment",
-      Note = "KermetDevelopment", -- Use this to tell the user how to get a key
-      FileName = "Key", -- It is recommended to use something unique, as other scripts using Rayfield may overwrite your key file
-      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"admin", "G71L-47CU-27KX-NBPZ"} -- List of keys that the system will accept, can be RAW file links (pastebin, github, etc.) or simple strings ("hello", "key22")
+      Note = "KermetDevelopment",
+      FileName = "Key",
+      SaveKey = false,
+      GrabKeyFromSite = false,
+      Key = {"admin", "G71L-47CU-27KX-NBPZ"}
    }
 })
 
@@ -91,16 +91,17 @@ local function GetClosestToCenter()
     return closest
 end
 
--- Input Handling
-UserInputService.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Gamepad1 and input.KeyCode == Enum.KeyCode.ButtonL2 then
+-- Input Handling (PC - Right Mouse Button)
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then  -- Right Click
         HoldingTrigger = true
         OriginalCameraType = Camera.CameraType
     end
 end)
 
 UserInputService.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Gamepad1 and input.KeyCode == Enum.KeyCode.ButtonL2 then
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then  -- Right Click
         HoldingTrigger = false
         Target = nil
         Camera.CameraType = OriginalCameraType
@@ -139,14 +140,14 @@ RunService.RenderStepped:Connect(function()
     end 
 end)
 
--- Update Offset Label 24/7
+-- Update Offset Label
 RunService.Heartbeat:Connect(function()
     offsetLabel:Set("Vertical Offset: " .. verticalOffset .. " px")
 end)
 
 -- UI Elements
 Tab1:CreateToggle({
-   Name = "Aimlock (L2 Trigger)",
+   Name = "Aimlock (Right Click)",
    CurrentValue = false,
    Flag = "Aimlock",
    Callback = function(Value)
