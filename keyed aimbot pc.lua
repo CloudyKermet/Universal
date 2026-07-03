@@ -39,7 +39,7 @@ local Window = Rayfield:CreateWindow({
       Subtitle = "KermetDevelopment",
       Note = "KermetDevelopment",
       FileName = "Key",
-      SaveKey = false,
+      SaveKey = true,
       GrabKeyFromSite = false,
       Key = {"admin", "G71L-47CU-27KX-NBPZ"}
    }
