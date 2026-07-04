@@ -24,7 +24,7 @@ local OriginalCameraType = Camera.CameraType
 local Window = Rayfield:CreateWindow({
    Name = "VoidX",
    LoadingTitle = "By Kermet",
-   LoadingSubtitle = "Aimbot Edition",
+   LoadingSubtitle = "Soft-Aim",
    ShowText = "Rayfield",
    DisableRayfieldPrompts = false,
    DisableBuildWarnings = false,
@@ -41,7 +41,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key",
       SaveKey = true,
       GrabKeyFromSite = false,
-      Key = {"admin", "G71L-47CU-27KX-NBPZ"}
+      Key = {"admin", "G71L-47CU-27KX-NBPZ", "K9P3-MX7V-8L2Q-RT5W"}
    }
 })
 
