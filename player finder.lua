@@ -23,7 +23,8 @@ local function FindAndJoinPlayer(username: string)
     end)
 
     if not success or not userId then
-        warn("❌ Invalid or non-existent username:", username)
+        console:Log("Not Found!", "ERROR")
+
         return false, "Invalid username"
     end
 
@@ -135,14 +136,11 @@ local ui = Lib.new({
     },
 })
 
-ui:Confirm(
-    "Delete Save",
-    "This will permanently erase your save data. Are you sure?",
-    function()
-        -- user confirmed
-    end,
-    function()
-        -- user cancelled
-    end,
-    { ConfirmText = "Delete", CancelText = "Keep", Destructive = true }
-)
+local input = ui:AddInput(1, "Player Name", "Enter username...", function(text, enter)
+    if enter then
+        local username = text
+    FindAndJoinPlayer(username)
+    end
+end)
+
+local console = ui:AddLogConsole(1, 220)
