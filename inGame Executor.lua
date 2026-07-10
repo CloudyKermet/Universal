@@ -362,3 +362,24 @@ UserInputService.InputBegan:Connect(function(input)
         screenGui.Enabled = not screenGui.Enabled
     end
 end)
+
+-- MOBILE KEYBOARD FIX
+local camera = workspace.CurrentCamera
+local normalPos = mainFrame.Position
+
+scriptBox.Focused:Connect(function()
+	-- Move the whole GUI up so it sits above the keyboard
+	TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad), {
+		Position = UDim2.new(0, 20, 0, -160)
+	}):Play()
+	
+	-- Lock FOV so the camera doesn't zoom in
+	camera.FieldOfView = camera.FieldOfView
+end)
+
+scriptBox.FocusLost:Connect(function()
+	-- Move it back down when keyboard closes
+	TweenService:Create(mainFrame, TDim2.new(0, 20, 0, 20)
+	}):Play()
+end)
+
