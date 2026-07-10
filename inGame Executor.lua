@@ -152,9 +152,9 @@ scriptBox.TextSize = 14
 scriptBox.Font = Enum.Font.Code
 scriptBox.TextXAlignment = Enum.TextXAlignment.Left
 scriptBox.TextYAlignment = Enum.TextYAlignment.Top
-scriptBox.MultiLine = true
+scriptBox.MultiLine = false
 scriptBox.ClearTextOnFocus = false
-scriptBox.TextWrapped = true
+scriptBox.TextWrapped = false
 scriptBox.Parent = editorBg
 
 -- Bottom Buttons
