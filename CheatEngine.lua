@@ -17,7 +17,7 @@ local Window = WindUI:CreateWindow({
     },
 })
 
-local CFrame = nil
+local CF = nil
 
 Window:Tag({
     Title = info.Name,
@@ -37,15 +37,15 @@ local codebox1 = Tab1:Code({
 Tab1:Button({
     Title = "Update Current CFrame",
     Callback = function()
-    CFrame = plr.Character.HumanoidRootPart.CFrame.Position
-    codebox1:SetCode(tostring(CFrame))
+    CF = plr.Character.HumanoidRootPart.CFrame.Position
+    codebox1:SetCode(tostring(CF))
     end
 })
 
 Tab1:Button({
     Title = "Goto Current CFrame",
     Callback = function()
-    plr.Character.HumanoidRootPart.CFrame = CFrame.new(CFrame)
+    plr.Character.HumanoidRootPart.CFrame = CFrame.new(CF)
     end
 })
 
