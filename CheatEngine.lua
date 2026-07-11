@@ -42,7 +42,7 @@ Tab1:Button({
     end
 })
 
-Tab2:Button({
+Tab1:Button({
     Title = "Goto Current CFrame",
     Callback = function()
     plr.Character.HumanoidRootPart.CFrame.Position = CFrame
