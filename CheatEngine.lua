@@ -9,7 +9,8 @@ end)
 local Window = WindUI:CreateWindow({
     Title = "Cheat Engine", -- window title
     Author = "by KermetDevelopment", -- window subtitle. optional
-    Folder = "CECK",    
+    Folder = "CECK",  
+    Resizable = true,   
     
     User = { 
         Enabled = true,
