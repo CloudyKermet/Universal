@@ -35,14 +35,19 @@ local codebox1 = Tab1:Code({
 })
 
 Tab1:Button({
-    Title = "Get Current CFrame",
+    Title = "Update Current CFrame",
     Callback = function()
     CFrame = plr.Character.HumanoidRootPart.CFrame.Position
     codebox1:SetCode(tostring(CFrame))
     end
 })
 
-
+Tab2:Button({
+    Title = "Goto Current CFrame",
+    Callback = function()
+    plr.Character.HumanoidRootPart.CFrame.Position = CFrame
+    end
+})
 
 
 
